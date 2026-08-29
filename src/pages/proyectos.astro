@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Footer from '../components/Footer.astro';
+import { projectsData } from '../data/projects';
+import { ui } from '../i18n/ui';
+
+const lang = 'en';
+const t = ui[lang];
+---
+
+<Layout 
+  title="Machine Learning & MLOps Projects | Christian Quidel" 
+  description="Technical portfolio of Machine Learning, Natural Language Processing, and MLOps projects developed by Christian Quidel."
+>
+  <Navbar lang={lang} currentPath="/proyectos" />
+
+  <main class="flex-1 py-12 sm:py-16 bg-corporate-bg">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <!-- Header -->
+      <div class="border-b border-corporate-border pb-6 space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-corporate-accent bg-corporate-accent-light px-2.5 py-1 rounded border border-corporate-accent-border">
+          {t['projects.tag']}
+        </span>
+        <h1 class="text-3xl font-extrabold text-corporate-primary mt-2">{t['projects.title']}</h1>
+        <p class="text-sm text-corporate-secondary max-w-2xl">
+          {t['projects.subtitle']}
+        </p>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {projectsData.en.map(project => (
+          <ProjectCard project={project} lang={lang} />
+        ))}
+      </div>
+
+    </div>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>

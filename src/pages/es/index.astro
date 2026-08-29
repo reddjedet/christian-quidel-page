@@ -1,0 +1,165 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Hero from '../../components/Hero.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import TweetCard from '../../components/TweetCard.astro';
+import DataVizChart from '../../components/DataVizChart.astro';
+import AboutBio from '../../components/AboutBio.astro';
+import Footer from '../../components/Footer.astro';
+import { projectsData } from '../../data/projects';
+import { tweetsData } from '../../data/tweets';
+import { ui } from '../../i18n/ui';
+
+const lang = 'es';
+const t = ui[lang];
+const featuredProjects = projectsData.es.filter(p => p.featured);
+const featuredTweets = tweetsData.filter(t => t.featured);
+---
+
+<Layout title="Christian Quidel | Data Scientist Trainee & MLOps" lang={lang}>
+  <Navbar lang={lang} currentPath="/es" />
+  
+  <main class="flex-1">
+    <Hero lang={lang} />
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="py-16 bg-corporate-bg border-b border-corporate-border">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-corporate-accent bg-corporate-accent-light px-2.5 py-1 rounded border border-corporate-accent-border">
+              {t['projects.tag']}
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-corporate-primary mt-2">
+              {t['projects.title']}
+            </h2>
+            <p class="text-sm text-corporate-secondary mt-1">
+              {t['projects.subtitle']}
+            </p>
+          </div>
+
+          <a 
+            href="/es/proyectos" 
+            class="text-xs font-semibold text-corporate-accent hover:text-corporate-accent-hover inline-flex items-center gap-1 group"
+          >
+            {t['projects.viewAll']} 
+            <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {featuredProjects.map(project => (
+            <ProjectCard project={project} lang={lang} />
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interactive Data Viz / MLOps Benchmark -->
+    <DataVizChart lang={lang} />
+
+    <!-- Curated Tweets / Microblog Section -->
+    <section id="tweets" class="py-16 bg-corporate-bg border-b border-corporate-border">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-sky-500" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span class="text-xs font-bold uppercase tracking-wider text-corporate-secondary">{t['tweets.tag']}</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-corporate-primary mt-2">
+              {t['tweets.title']}
+            </h2>
+            <p class="text-sm text-corporate-secondary mt-1">
+              {t['tweets.subtitle']}
+            </p>
+          </div>
+
+          <a 
+            href="https://x.com/CDanqui" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-xs font-semibold text-corporate-accent hover:text-corporate-accent-hover inline-flex items-center gap-1 group"
+          >
+            {t['tweets.followBtn']}
+          </a>
+        </div>
+
+        {featuredTweets.length > 0 ? (
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {featuredTweets.map(tweet => (
+              <TweetCard tweet={tweet} />
+            ))}
+          </div>
+        ) : (
+          <div class="bg-white border border-corporate-border rounded-xl p-8 text-center space-y-4 shadow-corporate">
+            <div class="w-12 h-12 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center mx-auto">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            <div class="space-y-1">
+              <h3 class="text-base font-bold text-corporate-primary">{t['tweets.emptyTitle']}</h3>
+              <p class="text-xs text-corporate-secondary max-w-md mx-auto leading-relaxed">
+                {t['tweets.emptyDesc']}
+              </p>
+            </div>
+            <a 
+              href="https://x.com/CDanqui" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-corporate-primary text-white text-xs font-semibold hover:bg-slate-800 btn-transition shadow-sm"
+            >
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              {t['tweets.connectX']}
+            </a>
+          </div>
+        )}
+
+      </div>
+    </section>
+
+    <!-- Bio & Background Section -->
+    <AboutBio lang={lang} />
+
+    <!-- Contact & Call to Action -->
+    <section class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-6">
+        <div class="w-12 h-12 rounded-full bg-corporate-accent-light text-corporate-accent flex items-center justify-center mx-auto">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-corporate-primary">
+          {t['contact.title']}
+        </h2>
+
+        <p class="text-sm text-corporate-secondary max-w-xl mx-auto leading-relaxed">
+          {t['contact.desc']}
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <a 
+            href="mailto:quidelchristian@gmail.com" 
+            class="px-6 py-2.5 rounded-lg bg-corporate-primary text-white text-sm font-semibold hover:bg-slate-800 btn-transition shadow-sm flex items-center gap-2"
+          >
+            quidelchristian@gmail.com
+          </a>
+
+          <a 
+            href="https://linkedin.com/in/quidelchristian" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-6 py-2.5 rounded-lg bg-corporate-accent-light text-corporate-accent border border-corporate-accent-border text-sm font-semibold hover:bg-blue-100 btn-transition flex items-center gap-2"
+          >
+            {t['contact.linkedInBtn']}
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer lang={lang} />
+</Layout>

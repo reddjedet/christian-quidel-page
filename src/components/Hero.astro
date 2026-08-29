@@ -1,0 +1,120 @@
+---
+import type { Language } from '../i18n/ui';
+import { ui } from '../i18n/ui';
+
+interface Props {
+  lang?: Language;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = ui[lang];
+const isSpanish = lang === 'es';
+---
+
+<section class="pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-corporate-border bg-gradient-to-b from-white to-corporate-bg">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+      
+      <!-- Left Column: Content -->
+      <div class="flex-1 space-y-6">
+        
+        <!-- Status Badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          {t['hero.badge']}
+        </div>
+
+        <!-- Main Heading -->
+        <div class="space-y-2">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-corporate-primary tracking-tight leading-tight">
+            {t['hero.title']}
+          </h1>
+          <p class="text-lg sm:text-xl font-medium text-corporate-accent">
+            {t['hero.subtitle']}
+          </p>
+        </div>
+
+        <!-- Pitch Paragraph -->
+        <p class="text-base text-corporate-secondary leading-relaxed max-w-2xl">
+          {t['hero.pitch']}
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a 
+            href={isSpanish ? '#proyectos' : '#projects'} 
+            class="px-5 py-2.5 rounded-lg bg-corporate-primary text-white text-sm font-semibold hover:bg-slate-800 btn-transition shadow-sm flex items-center gap-2"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            {t['hero.btnProjects']}
+          </a>
+
+          <a 
+            href="https://x.com/CDanqui" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-5 py-2.5 rounded-lg bg-white border border-corporate-border text-corporate-primary text-sm font-semibold hover:bg-corporate-subtle hover:border-slate-300 btn-transition shadow-sm flex items-center gap-2"
+          >
+            <svg class="w-4 h-4 text-sky-500" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            {t['hero.btnFollowX']}
+          </a>
+
+          <a 
+            href="https://linkedin.com/in/quidelchristian" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-4 py-2.5 rounded-lg bg-corporate-accent-light text-corporate-accent border border-corporate-accent-border text-sm font-semibold hover:bg-blue-100 btn-transition flex items-center gap-2"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25a1.66 1.66 0 0 0-1.67 1.66 1.66 1.66 0 0 0 1.67 1.67 1.66 1.66 0 0 0 1.67-1.67c0-.92-.75-1.66-1.67-1.66Z"/></svg>
+            {t['hero.btnLinkedIn']}
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Quick Stats Card -->
+      <div class="w-full md:w-80 bg-white border border-corporate-border rounded-xl p-5 shadow-corporate space-y-4">
+        <div class="flex items-center justify-between border-b border-corporate-border pb-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-corporate-secondary">{t['hero.statsTitle']}</span>
+          <span class="text-xs text-corporate-accent font-semibold bg-corporate-accent-light px-2 py-0.5 rounded">{t['hero.statsBadge']}</span>
+        </div>
+
+        <div class="space-y-3 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-corporate-secondary">{t['hero.statsLanguages']}</span>
+            <span class="font-semibold text-corporate-primary">Python, SQL, Bash</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-corporate-secondary">{t['hero.statsML']}</span>
+            <span class="font-semibold text-corporate-primary">Scikit-Learn, TF-IDF</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-corporate-secondary">{t['hero.statsMLOps']}</span>
+            <span class="font-semibold text-corporate-accent">ONNX (Java Spring Boot)</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-corporate-secondary">{t['hero.statsCloud']}</span>
+            <span class="font-semibold text-corporate-primary">Docker Compose, OCI</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-corporate-secondary">{t['hero.statsRigor']}</span>
+            <span class="font-semibold text-corporate-primary">{t['hero.statsRigorValue']}</span>
+          </div>
+        </div>
+
+        <div class="pt-2 border-t border-corporate-border">
+          <div class="flex items-center justify-between text-[11px] text-corporate-muted">
+            <span>{t['hero.statsLocation']}</span>
+            <span class="text-corporate-secondary font-medium">Buenos Aires, AR</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

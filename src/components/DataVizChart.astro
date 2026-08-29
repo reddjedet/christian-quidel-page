@@ -1,0 +1,121 @@
+---
+import type { Language } from '../i18n/ui';
+import { ui } from '../i18n/ui';
+
+interface Props {
+  lang?: Language;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = ui[lang];
+---
+
+<section id="metricas" class="py-14 bg-white border-y border-corporate-border">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    
+    <!-- Section Header -->
+    <div class="max-w-2xl">
+      <span class="text-xs font-bold uppercase tracking-wider text-corporate-accent bg-corporate-accent-light px-2.5 py-1 rounded border border-corporate-accent-border">
+        {t['metrics.tag']}
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-corporate-primary mt-2">
+        {t['metrics.title']}
+      </h2>
+      <p class="text-sm text-corporate-secondary mt-1">
+        {t['metrics.subtitle']}
+      </p>
+    </div>
+
+    <!-- Chart Container -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+      
+      <!-- Chart Canvas -->
+      <div class="lg:col-span-2 bg-corporate-bg border border-corporate-border rounded-xl p-5 shadow-sm relative min-h-[300px]">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-sm font-bold text-corporate-primary">{t['metrics.chartTitle']}</h3>
+          <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+            {t['metrics.chartReduction']}
+          </span>
+        </div>
+        
+        <div class="h-64 relative">
+          <canvas id="latencyChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Key Insights Box -->
+      <div class="space-y-4 bg-corporate-bg border border-corporate-border rounded-xl p-5">
+        <h4 class="text-sm font-bold text-corporate-primary border-b border-corporate-border pb-2">
+          {t['metrics.cardResults']}
+        </h4>
+
+        <div class="space-y-3">
+          <div class="p-3 bg-white rounded-lg border border-corporate-border">
+            <div class="text-xs text-corporate-muted font-medium">Python REST API (FastAPI / Flask)</div>
+            <div class="text-lg font-bold text-slate-700">~45.0 ms</div>
+            <p class="text-[11px] text-corporate-secondary mt-1">{t['metrics.pythonDesc']}</p>
+          </div>
+
+          <div class="p-3 bg-white rounded-lg border border-blue-200 bg-blue-50/50">
+            <div class="text-xs text-corporate-accent font-semibold">ONNX Runtime in Java 17 (Spring Boot)</div>
+            <div class="text-lg font-bold text-corporate-accent">0.8 ms</div>
+            <p class="text-[11px] text-corporate-secondary mt-1">{t['metrics.onnxDesc']}</p>
+          </div>
+        </div>
+
+        <div class="text-[11px] text-corporate-muted pt-1">
+          {t['metrics.footnote']}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { Chart, BarController, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
+
+  Chart.register(BarController, BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+
+  const ctx = document.getElementById('latencyChart') as HTMLCanvasElement;
+  if (ctx) {
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Python REST API (Flask/FastAPI)', 'Native ONNX Runtime (Java 17)'],
+        datasets: [{
+          label: 'Inference Latency (ms)',
+          data: [45.0, 0.8],
+          backgroundColor: ['#94a3b8', '#2563eb'],
+          borderColor: ['#64748b', '#1d4ed8'],
+          borderWidth: 1,
+          borderRadius: 6,
+          barThickness: 45
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: (context) => (context.parsed.y !== null ? `${context.parsed.y} ms` : '')
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Milliseconds (ms)', font: { size: 11, weight: 'bold' } },
+            grid: { color: '#e2e8f0' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      }
+    });
+  }
+</script>

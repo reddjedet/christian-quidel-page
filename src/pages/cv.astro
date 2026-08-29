@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const lang = 'en';
+---
+
+<Layout title="Curriculum Vitae | Christian Quidel">
+  <Navbar lang={lang} currentPath="/cv" />
+
+  <main class="flex-1 py-10 bg-corporate-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+      
+      <!-- Top Action Bar -->
+      <div class="bg-white border border-corporate-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+        <div>
+          <h1 class="text-lg font-bold text-corporate-primary">Official Curriculum Vitae</h1>
+          <p class="text-xs text-corporate-secondary">ATS-Optimized single-page version for International Hiring Managers.</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button 
+            onclick="window.print()" 
+            class="px-4 py-2 rounded-lg bg-corporate-primary text-white text-xs font-semibold hover:bg-slate-800 btn-transition flex items-center gap-1.5"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+            Print / Save as PDF
+          </button>
+        </div>
+      </div>
+
+      <!-- CV Paper Frame -->
+      <div class="bg-white border border-corporate-border rounded-xl p-8 sm:p-12 shadow-corporate text-corporate-primary space-y-6 text-sm leading-relaxed">
+        
+        <!-- Header -->
+        <div class="text-center space-y-1 border-b border-corporate-border pb-6">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-corporate-primary tracking-tight uppercase">Christian Quidel</h2>
+          <div class="text-xs text-corporate-secondary">
+            Buenos Aires, Argentina (Open to Remote | UTC-3) • quidelchristian@gmail.com
+          </div>
+          <div class="text-xs text-corporate-accent pt-1 flex justify-center gap-4 font-medium">
+            <a href="https://linkedin.com/in/quidelchristian" target="_blank" class="hover:underline">linkedin.com/in/quidelchristian</a>
+            <span>•</span>
+            <a href="https://github.com/reddjedet" target="_blank" class="hover:underline">github.com/reddjedet</a>
+            <span>•</span>
+            <a href="https://x.com/CDanqui" target="_blank" class="hover:underline">@CDanqui</a>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <section class="space-y-2">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-corporate-primary border-b border-corporate-primary pb-1">
+            Professional Summary
+          </h3>
+          <p class="text-xs text-corporate-secondary leading-relaxed text-justify">
+            Data Scientist Trainee with practical project experience in end-to-end Machine Learning lifecycles, exploratory data analysis, and multi-service cloud deployment on Oracle Cloud Infrastructure (OCI). Specialized in Python (Pandas, Scikit-learn) for NLP text classification, predictive modeling, and feature engineering. Experienced in cross-language MLOps, serializing Scikit-learn pipelines to ONNX for native sub-millisecond backend inference. Proven technical leadership in agile hackathon environments with a strong background in analytical problem-solving and containerized deployments.
+          </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="space-y-2">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-corporate-primary border-b border-corporate-primary pb-1">
+            Technical Skills
+          </h3>
+          <ul class="text-xs text-corporate-secondary space-y-1.5">
+            <li><strong class="text-corporate-primary">Programming & Querying:</strong> Python (Pandas, NumPy, Matplotlib, Seaborn), SQL (MySQL - Queries, Joins, Aggregations), Bash, Git/GitHub (Branching, PRs, Workflow Coordination)</li>
+            <li><strong class="text-corporate-primary">Machine Learning & NLP:</strong> Scikit-Learn (TF-IDF Vectorization, Logistic Regression, Decision Trees), Feature Engineering, Data Preprocessing, EDA, GridSearchCV, Cross-Validation, Evaluation Metrics (ROC-AUC, Precision, Recall, F1-Score, RMSE)</li>
+            <li><strong class="text-corporate-primary">MLOps, Cloud & Tools:</strong> ONNX (skl2onnx), Docker, Docker Compose, Oracle Cloud Infrastructure (OCI Compute), Jupyter Lab, VS Code, REST API Contracts</li>
+            <li><strong class="text-corporate-primary">Languages & Methodologies:</strong> Agile/Scrum Sprint Coordination, Technical Documentation, English (B2 - Professional Working Proficiency), Spanish (Native)</li>
+          </ul>
+        </section>
+
+        <!-- Projects -->
+        <section class="space-y-3">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-corporate-primary border-b border-corporate-primary pb-1">
+            Projects & Hackathons
+          </h3>
+          
+          <div class="space-y-1.5">
+            <div class="flex justify-between items-baseline text-xs font-bold text-corporate-primary">
+              <span>FinanceAI – Intelligent Financial Diagnostic & NLP Platform | Data Scientist & Deployment Lead</span>
+              <span class="text-corporate-muted font-medium">Aug 2026</span>
+            </div>
+            <div class="text-[11px] text-corporate-muted italic">Technologies: Python, Scikit-Learn, NLP (TF-IDF), ONNX, Docker Compose, MySQL, Spring Boot, Oracle Cloud (OCI)</div>
+            <ul class="text-xs text-corporate-secondary space-y-1 list-disc list-inside">
+              <li>Led sprint deliverables and deployment architecture in a cross-functional team during the Oracle Next Education (ONE) Hackathon.</li>
+              <li>Engineered an NLP transaction classifier with Scikit-learn (TF-IDF + Linear Classifier) categorizing 240,000+ records across 10 categories with 99.0% test accuracy.</li>
+              <li>Prevented data leakage via temporal train/test validation and optimized hyperparameters using GridSearchCV across 36 candidates (3-fold cross-validation).</li>
+              <li>Developed a multivariate Decision Tree diagnostic model evaluating user financial risk status ('Healthy', 'In Observation', 'At Risk').</li>
+              <li>Serialized ML pipelines to ONNX format (skl2onnx), enabling native sub-millisecond inference inside a Java 17 / Spring Boot backend service.</li>
+              <li>Orchestrated 4 microservices with Docker Compose (Vue 3, Spring Boot, MySQL, Jupyter) and deployed the complete stack to OCI Compute.</li>
+            </ul>
+          </div>
+
+          <div class="space-y-1.5 pt-2">
+            <div class="flex justify-between items-baseline text-xs font-bold text-corporate-primary">
+              <span>Predictive Modeling & Tabular Data Analytics Practice | Independent Data Practitioner</span>
+              <span class="text-corporate-muted font-medium">2026</span>
+            </div>
+            <div class="text-[11px] text-corporate-muted italic">Technologies: Python, Pandas, Scikit-Learn, Matplotlib, Seaborn, MySQL, Jupyter</div>
+            <ul class="text-xs text-corporate-secondary space-y-1 list-disc list-inside">
+              <li>Executed comprehensive exploratory data analysis (EDA) across tabular transaction datasets, detecting outliers via IQR and analyzing multivariate feature distributions.</li>
+              <li>Built automated preprocessing pipelines handling missing value imputation, StandardScaler numerical normalization, and One-Hot Encoding for categorical attributes.</li>
+              <li>Evaluated classification and regression baselines (Logistic Regression, Decision Trees), analyzing trade-offs using Confusion Matrices, ROC-AUC, F1-Score, and RMSE.</li>
+              <li>Documented findings, visual insights, and reproducible code workflows in structured Jupyter notebooks adhering to clean coding standards.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Experience & Leadership -->
+        <section class="space-y-2">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-corporate-primary border-b border-corporate-primary pb-1">
+            Experience & Leadership
+          </h3>
+          <div class="flex justify-between items-baseline text-xs font-bold text-corporate-primary">
+            <span>Academic Hackathons & Open Source Projects | Technical Contributor & Team Lead</span>
+            <span class="text-corporate-muted font-medium">2026 – Present</span>
+          </div>
+          <div class="text-[11px] text-corporate-muted italic">Location: Remote</div>
+          <ul class="text-xs text-corporate-secondary space-y-1 list-disc list-inside">
+            <li>Coordinated project milestones, task delegation, and code integration across Frontend, Backend, and Data Science peers in agile sprints.</li>
+            <li>Authored technical documentation and schema contracts (metadata.json) ensuring seamless integration between ML models and software applications.</li>
+            <li>Guided team members on Git/GitHub version control best practices (branching, pull requests, conflict resolution) for multi-service repositories.</li>
+          </ul>
+        </section>
+
+        <!-- Education & Certifications -->
+        <section class="space-y-2">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-corporate-primary border-b border-corporate-primary pb-1">
+            Education & Certifications
+          </h3>
+          <div class="text-xs">
+            <div class="font-bold text-corporate-primary">Oracle Next Education (ONE) – in partnership with Alura Latam <span class="font-normal text-corporate-muted float-right">2025 – 2026</span></div>
+            <div class="text-corporate-secondary">Specialized Program in Data Science & Software Engineering (Python, Scikit-Learn, MySQL, Docker, OCI)</div>
+          </div>
+          <div class="text-xs text-corporate-secondary pt-1 space-y-0.5">
+            <div>• <strong>Data Science Specialization</strong> – Oracle Next Education & Alura Latam (2026)</div>
+            <div>• <strong>Machine Learning with Scikit-Learn & Python</strong> – Alura Latam (2026)</div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>

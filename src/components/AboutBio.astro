@@ -1,0 +1,52 @@
+---
+import type { Language } from '../i18n/ui';
+import { ui } from '../i18n/ui';
+
+interface Props {
+  lang?: Language;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = ui[lang];
+---
+
+<section id="sobre-mi" class="py-14 bg-corporate-bg border-b border-corporate-border">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="bg-white border border-corporate-border rounded-xl p-6 sm:p-8 shadow-corporate space-y-6">
+      
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-corporate-border pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-corporate-accent">{t['about.tag']}</span>
+          <h2 class="text-2xl font-extrabold text-corporate-primary mt-1">{t['about.title']}</h2>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-corporate-secondary bg-corporate-subtle px-3 py-1.5 rounded-lg border border-corporate-border">
+          <span>{t['about.badge']}</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-corporate-secondary leading-relaxed">
+        
+        <div class="space-y-4">
+          <p>{t['about.p1']}</p>
+          <p>{t['about.p2']}</p>
+        </div>
+
+        <div class="space-y-4">
+          <p>{t['about.p3']}</p>
+          <div class="bg-corporate-accent-light p-4 rounded-lg border border-corporate-accent-border text-xs text-corporate-primary space-y-1.5">
+            <strong class="font-bold text-corporate-accent block">{t['about.pillarsTitle']}</strong>
+            <ul class="space-y-1 list-disc list-inside text-corporate-secondary">
+              <li>{t['about.pillar1']}</li>
+              <li>{t['about.pillar2']}</li>
+              <li>{t['about.pillar3']}</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
