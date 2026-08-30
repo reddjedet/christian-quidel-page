@@ -75,7 +75,7 @@ export const ui = {
 
     // Contact Section
     'contact.title': 'Looking to hire a Data Scientist Trainee with a production mindset?',
-    'contact.desc': 'I am available to join global teams in remote or hybrid formats. Open to Data Science, Machine Learning, or Data Analytics roles.',
+    'contact.desc': 'I am available to join global teams in 100% remote roles. Open to Data Science, Machine Learning, or Data Analytics positions.',
     'contact.linkedInBtn': 'LinkedIn Profile',
 
     // Footer
@@ -156,7 +156,7 @@ export const ui = {
 
     // Contact Section
     'contact.title': '¿Buscas incorporar un Data Scientist Trainee con criterio de producción?',
-    'contact.desc': 'Estoy disponible para sumarme a equipos globales en formato remoto o híbrido. Abierto a posiciones de Data Science, Machine Learning o Data Analytics.',
+    'contact.desc': 'Estoy disponible para sumarme a equipos globales en modalidad 100% remota. Abierto a posiciones de Data Science, Machine Learning o Data Analytics.',
     'contact.linkedInBtn': 'LinkedIn Profile',
 
     // Footer

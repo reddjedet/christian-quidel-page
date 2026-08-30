@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://quidelchristian.com.ar',
+  site: 'https://christian-quidel-page.vercel.app',
   output: 'static',
   i18n: {
     defaultLocale: 'en',
