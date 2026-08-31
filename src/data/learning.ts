@@ -12,10 +12,10 @@ export interface Course {
 export const coursesData: Record<'en' | 'es', Course[]> = {
   en: [
     {
-      id: 'cybersecurity-coursera',
-      title: 'Cybersecurity Specialization',
-      institution: 'Coursera',
-      platform: 'Coursera',
+      id: 'cybersecurity-google-coursera',
+      title: 'Cybersecurity',
+      institution: 'Google',
+      platform: 'Google • Coursera',
       status: 'in_progress',
       statusDate: 'In Progress • 2026',
       description: 'Foundational security engineering and threat modeling: network defense protocols, security information and event management (SIEM), incident triage, and Python scripting for automated security operations and data integrity protection.',
@@ -23,7 +23,7 @@ export const coursesData: Record<'en' | 'es', Course[]> = {
     },
     {
       id: 'docker-codigofacilito',
-      title: 'Professional Docker & Containerization',
+      title: 'Curso Profesional de Docker',
       institution: 'CódigoFacilito',
       platform: 'CódigoFacilito',
       status: 'in_progress',
@@ -34,10 +34,10 @@ export const coursesData: Record<'en' | 'es', Course[]> = {
   ],
   es: [
     {
-      id: 'cybersecurity-coursera',
-      title: 'Especialización en Ciberseguridad',
-      institution: 'Coursera',
-      platform: 'Coursera',
+      id: 'cybersecurity-google-coursera',
+      title: 'Ciberseguridad',
+      institution: 'Google',
+      platform: 'Google • Coursera',
       status: 'in_progress',
       statusDate: 'En Curso • 2026',
       description: 'Ingeniería de seguridad y análisis de amenazas: protocolos de defensa de redes, gestión de eventos e información de seguridad (SIEM), triaje de incidentes y scripting en Python para automatización de seguridad e integridad de datos.',
@@ -45,7 +45,7 @@ export const coursesData: Record<'en' | 'es', Course[]> = {
     },
     {
       id: 'docker-codigofacilito',
-      title: 'Curso Profesional de Docker & Contenedores',
+      title: 'Curso Profesional de Docker',
       institution: 'CódigoFacilito',
       platform: 'CódigoFacilito',
       status: 'in_progress',
