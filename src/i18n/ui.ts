@@ -73,6 +73,12 @@ export const ui = {
     'about.pillar2': 'MLOps and containerized cloud deployment (Docker / OCI).',
     'about.pillar3': 'Clear API data contracts and cross-functional communication with Software teams.',
 
+    // Continuous Learning Section
+    'learning.tag': 'Continuous Learning',
+    'learning.title': 'Active Courses & Technical Upskilling',
+    'learning.subtitle': 'Currently expanding my engineering toolkit with direct focus on cybersecurity, containerization, and production infrastructure.',
+    'learning.skillsTitle': 'Key Skills & Competencies:',
+
     // Contact Section
     'contact.title': 'Looking to hire a Data Scientist Trainee with a production mindset?',
     'contact.desc': 'I am available to join global teams in 100% remote roles. Open to Data Science, Machine Learning, or Data Analytics positions.',
@@ -153,6 +159,12 @@ export const ui = {
     'about.pillar1': 'Modelos interpretables con validación cruzada rigurosa.',
     'about.pillar2': 'MLOps y despliegue real en contenedores (Docker / OCI).',
     'about.pillar3': 'Comunicación transversal y contratos de API claros con equipos de Software.',
+
+    // Continuous Learning Section
+    'learning.tag': 'Formación Continua',
+    'learning.title': 'Cursos & Especializaciones en Curso',
+    'learning.subtitle': 'Ampliando mi stack técnico con foco en seguridad, contenedorización e infraestructura para producción.',
+    'learning.skillsTitle': 'Competencias & Habilidades Clave:',
 
     // Contact Section
     'contact.title': '¿Buscas incorporar un Data Scientist Trainee con criterio de producción?',

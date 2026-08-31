@@ -1,6 +1,7 @@
 ---
 import type { Language } from '../i18n/ui';
 import { ui } from '../i18n/ui';
+import { coursesData } from '../data/learning';
 
 interface Props {
   lang?: Language;
@@ -8,11 +9,13 @@ interface Props {
 
 const { lang = 'en' } = Astro.props;
 const t = ui[lang];
+const courses = coursesData[lang];
 ---
 
-<section id="sobre-mi" class="py-14 bg-corporate-bg border-b border-corporate-border">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="sobre-mi" class="py-16 bg-corporate-bg border-b border-corporate-border">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
     
+    <!-- Main Bio Card -->
     <div class="bg-white border border-corporate-border rounded-xl p-6 sm:p-8 shadow-corporate space-y-6">
       
       <div class="flex flex-wrap items-center justify-between gap-4 border-b border-corporate-border pb-4">
@@ -44,6 +47,78 @@ const t = ui[lang];
           </div>
         </div>
 
+      </div>
+
+    </div>
+
+    <!-- Continuous Learning Sub-Section -->
+    <div class="space-y-6">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-corporate-accent bg-corporate-accent-light px-2.5 py-1 rounded border border-corporate-accent-border">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            {t['learning.tag']}
+          </div>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-corporate-primary mt-2">
+            {t['learning.title']}
+          </h3>
+          <p class="text-sm text-corporate-secondary mt-0.5">
+            {t['learning.subtitle']}
+          </p>
+        </div>
+      </div>
+
+      <!-- Courses Grid (Responsive 1-col on mobile, 2-col on desktop, room for up to 3) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {courses.map(course => (
+          <div class="bg-white border border-corporate-border rounded-xl p-6 shadow-corporate hover:border-corporate-focus hover:shadow-corporate-hover btn-transition flex flex-col justify-between space-y-4">
+            
+            <div class="space-y-3">
+              
+              <!-- Card Header -->
+              <div class="flex items-start justify-between gap-3 border-b border-corporate-border pb-3">
+                <div class="space-y-1">
+                  <span class="text-xs font-bold text-corporate-accent uppercase tracking-wider block">
+                    {course.platform}
+                  </span>
+                  <h4 class="text-base sm:text-lg font-bold text-corporate-primary leading-snug">
+                    {course.title}
+                  </h4>
+                </div>
+                
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200 whitespace-nowrap flex-shrink-0">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                  </span>
+                  {course.statusDate}
+                </span>
+              </div>
+
+              <!-- Description -->
+              <p class="text-xs sm:text-sm text-corporate-secondary leading-relaxed">
+                {course.description}
+              </p>
+
+            </div>
+
+            <!-- Skill Tags Footer -->
+            <div class="pt-3 border-t border-corporate-border">
+              <div class="text-[11px] font-bold text-corporate-primary uppercase tracking-wider mb-2">
+                {t['learning.skillsTitle']}
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                {course.skills.map(skill => (
+                  <span class="px-2 py-0.5 bg-corporate-subtle border border-slate-200 text-corporate-secondary rounded text-[11px] font-medium">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        ))}
       </div>
 
     </div>
